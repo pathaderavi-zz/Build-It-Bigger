@@ -9,6 +9,8 @@ public class DisplayJokesActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_display_jokes);
         String joke = getIntent().getStringExtra("check");
@@ -16,7 +18,7 @@ public class DisplayJokesActivity extends AppCompatActivity {
         TextView jokeView = (TextView) findViewById(R.id.jokeTextView);
         jokeView.setText(joke);
 
-        //getActionBar().setDisplayHomeAsUpEnabled(true);
+
 
     }
 }
