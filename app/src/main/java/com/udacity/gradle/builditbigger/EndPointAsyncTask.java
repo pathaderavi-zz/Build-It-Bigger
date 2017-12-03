@@ -30,7 +30,7 @@ public class EndPointAsyncTask extends AsyncTask<Pair<Context, String>, Void, St
             MyApi.Builder builder = new MyApi.Builder(AndroidHttp.newCompatibleTransport(),
                     new AndroidJsonFactory(), null)
 
-                    .setRootUrl("http://gradle-android.appspot.com/_ah/api/")
+                    .setRootUrl("https://gradle-android.appspot.com/_ah/api/")
                     .setGoogleClientRequestInitializer(new GoogleClientRequestInitializer() {
                         @Override
                         public void initialize(AbstractGoogleClientRequest<?> abstractGoogleClientRequest) throws IOException {
@@ -43,7 +43,7 @@ public class EndPointAsyncTask extends AsyncTask<Pair<Context, String>, Void, St
             context = pairs[0].first;
             String name = pairs[0].second;
             try {
-                return myApiService.sayHi(name).execute().getData();
+                return myApiService.sayHi().execute().getData();
             } catch (Exception e) {
                 e.printStackTrace();
             }
