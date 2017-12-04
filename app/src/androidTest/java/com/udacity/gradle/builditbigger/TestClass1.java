@@ -22,13 +22,13 @@ public class TestClass1 {
         String n = null;
 
         try{
-            Log.d("String Check",String.valueOf(n));
+
             n = new EndPointAsyncTask(InstrumentationRegistry.getTargetContext()).execute().get();
 
         }catch (Exception e){
             e.printStackTrace();
         }
-        Log.d("String Check",String.valueOf(n));
+
         assertNotNull(n);
     }
 }

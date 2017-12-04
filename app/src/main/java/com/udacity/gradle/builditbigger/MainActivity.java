@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
         Intent newIntent = new Intent(this,DisplayJokesActivity.class);
         newIntent.putExtra("check",jokeString);
         startActivity(newIntent);
-        new EndPointAsyncTask(this).execute(new Pair<Context, String>(getApplicationContext(), "Manfred"));
+        new EndPointAsyncTask(this).execute(new Pair<>(getApplicationContext(), "Manfred"));
 
     }
 

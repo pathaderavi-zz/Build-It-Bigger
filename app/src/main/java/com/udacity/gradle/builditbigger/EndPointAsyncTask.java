@@ -26,6 +26,7 @@ public class EndPointAsyncTask extends AsyncTask<Pair<Context, String>, Void, St
 
     public EndPointAsyncTask(Context m){
         context = m;
+        Log.d("Check Async","Here");
     }
     @Override
     protected String doInBackground(Pair<Context, String>[] pairs) {
@@ -59,6 +60,7 @@ public class EndPointAsyncTask extends AsyncTask<Pair<Context, String>, Void, St
     @Override
     protected void onPostExecute(String s) {
         super.onPostExecute(s);
+        Log.d("Check Async",String.valueOf(s));
         if (context != null) {
             if (toast != null) {
                 toast.cancel();
