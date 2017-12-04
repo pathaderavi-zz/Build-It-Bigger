@@ -41,7 +41,7 @@ public class EndPointAsyncTask extends AsyncTask<Pair<Context, String>, Void, St
             myApiService = builder.build();
             Log.d("Check", "Context");
             context = pairs[0].first;
-            String name = pairs[0].second;
+
             try {
                 return myApiService.sayHi().execute().getData();
             } catch (Exception e) {
@@ -59,8 +59,13 @@ public class EndPointAsyncTask extends AsyncTask<Pair<Context, String>, Void, St
         if (context != null) {
             if (toast != null) {
                 toast.cancel();
+                toast = Toast.makeText(context,s,Toast.LENGTH_SHORT);
+                toast.show();
             }
-            Toast.makeText(context, s, Toast.LENGTH_LONG).show();
+           else{
+                toast = Toast.makeText(context,s,Toast.LENGTH_SHORT);
+                toast.show();
+            }
         }
     }
 }
