@@ -24,6 +24,9 @@ public class EndPointAsyncTask extends AsyncTask<Pair<Context, String>, Void, St
     private static MyApi myApiService = null;
     private Context context;
 
+    public EndPointAsyncTask(Context m){
+        context = m;
+    }
     @Override
     protected String doInBackground(Pair<Context, String>[] pairs) {
         if (myApiService == null) {
@@ -40,7 +43,7 @@ public class EndPointAsyncTask extends AsyncTask<Pair<Context, String>, Void, St
 
             myApiService = builder.build();
             Log.d("Check", "Context");
-            context = pairs[0].first;
+
 
             try {
                 return myApiService.sayHi().execute().getData();
