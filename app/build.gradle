@@ -1,14 +1,7 @@
 apply plugin: 'com.android.application'
 
 android {
-    signingConfigs {
-        config {
-            keyAlias 'Ravikiran'
-            keyPassword '21Whites'
-            storeFile file('$rootdir/KeyStores/Test')
-            storePassword '21Whites'
-        }
-    }
+
     compileSdkVersion 25
     buildToolsVersion '26.0.2'
     defaultConfig {
@@ -24,10 +17,6 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-           signingConfig signingConfigs.config
-        }
-        debug {
-            signingConfig signingConfigs.config
         }
     }
     productFlavors {
