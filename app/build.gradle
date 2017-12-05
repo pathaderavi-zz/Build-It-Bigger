@@ -5,7 +5,7 @@ android {
         config {
             keyAlias 'Ravikiran'
             keyPassword '21Whites'
-            storeFile file('/Users/ravikiranpathade/Desktop/Git_Projects/KeyStores/Test')
+            storeFile file('$rootdir/KeyStores/Test')
             storePassword '21Whites'
         }
     }
@@ -24,7 +24,7 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-            signingConfig signingConfigs.config
+           signingConfig signingConfigs.config
         }
         debug {
             signingConfig signingConfigs.config

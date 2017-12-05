@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.util.Pair;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -13,6 +14,8 @@ import com.udacity.gradle.builditbigger.EndPointAsyncTask;
 
 import com.example.jokeprovider.Jokes;
 import com.example.displayjoke.*;
+
+import java.util.concurrent.ExecutionException;
 
 public class MainActivity extends AppCompatActivity {
     public Jokes jokes;
@@ -47,16 +50,8 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void tellJoke(View view) {
-        jokes = new Jokes();
-        //Toast.makeText(this, jokes.getJoke(), Toast.LENGTH_SHORT).show();
-
-        String jokeString = jokes.getJoke();
-
-        Intent newIntent = new Intent(this,DisplayJokesActivity.class);
-        newIntent.putExtra("check",jokeString);
-        startActivity(newIntent);
-        new EndPointAsyncTask(this).execute(new Pair<>(getApplicationContext(), "Manfred"));
+    public void tellJoke(View view) throws ExecutionException, InterruptedException {
+        new EndPointAsyncTask(this).execute();
 
     }
 

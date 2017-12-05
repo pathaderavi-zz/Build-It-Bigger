@@ -1,11 +1,13 @@
 package com.udacity.gradle.builditbigger;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.util.Log;
 import android.util.Pair;
 import android.widget.Toast;
 
+import com.example.displayjoke.DisplayJokesActivity;
 import com.google.api.client.extensions.android.http.AndroidHttp;
 import com.google.api.client.extensions.android.json.AndroidJsonFactory;
 import com.google.api.client.googleapis.services.AbstractGoogleClientRequest;
@@ -59,22 +61,13 @@ public class EndPointAsyncTask extends AsyncTask<Pair<Context, String>, Void, St
         return null;
     }
 
-    Toast toast;
-
     @Override
     protected void onPostExecute(String s) {
         super.onPostExecute(s);
-        Log.d("Check Async",String.valueOf(s));
-        if (context != null) {
-            if (toast != null) {
-                toast.cancel();
-                toast = Toast.makeText(context,s,Toast.LENGTH_SHORT);
-                toast.show();
-            }
-           else{
-                toast = Toast.makeText(context,s,Toast.LENGTH_SHORT);
-                toast.show();
-            }
-        }
+
+        Intent newIntent = new Intent(context,DisplayJokesActivity.class);
+        newIntent.putExtra("check",s);
+        context.startActivity(newIntent);
+
     }
 }
